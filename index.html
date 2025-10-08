@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Angel</title>
+<style>
+  body {
+  position: relative;
+  font-family: "Hiragino Mincho Pro","游明朝","serif";
+  margin: 0;
+  padding: 0;
+  background: url('haikei.jpg') no-repeat center center fixed;
+  background-size: cover; /* ← 画像を画面いっぱいに拡大・縮小 */
+}
+
+  /* 白いリング */
+  .rings-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+  }
+  .rings-overlay .ring {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+      rgba(255,255,255,0) 0%,
+      rgba(255,255,255,0.15) 70%,
+      rgba(255,255,255,0.4) 100%);
+  }
+
+  /* 中央寄せの全体ラッパー */
+  .blog-wrapper {
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  /* サイドバー */
+  .sidebar {
+    flex: 0 0 250px;
+    background: #ffffff url('clover-shadow.png') repeat;
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 0;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+    overflow-y: auto;
+  }
+  .sidebar h3 { margin-top: 0; }
+  .sidebar ul { list-style: none; padding-left: 0; }
+  .sidebar ul li { margin-bottom: 10px; }
+  .sidebar ul li a { text-decoration: none; color: #333; text-decoration: underline;   /* ← ここを追加または変更 */
+  color: #333; }
+  .sidebar ul li a:hover { text-decoration: underline; }
+
+  /* メインコンテナ */
+  .container {
+    flex: 1;
+    background: rgba(255,255,255,0.9);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+  }
+
+  .title {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(180deg, #e3ff97, #ffffff);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .title .wing { width: 100px; height: auto; }
+  .title .wing.left { margin-right: 10px; }
+  .title .wing.right { margin-left: 10px; }
+
+  .summary {
+    background: rgba(255,255,255,0.85);
+    padding: 15px;
+    margin-bottom: 30px;
+    border-left: 4px solid #baff52;
+    border-radius: 6px;
+    font-size: 0.95em;
+    line-height: 1.7;
+  }
+
+  .post { margin-bottom: 30px; }
+  .post h2 { font-size: 1.2em; margin-bottom: 5px; }
+  .post blockquote {
+    background: rgba(255,255,255,0.8);
+    padding: 10px;
+    border-left: 4px solid #baff52;
+    margin: 10px 0;
+  }
+  .post img {
+    max-width: 100%;
+    display: block;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .blog-wrapper { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      box-shadow: none;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="rings-overlay"></div>
+
+<div class="blog-wrapper">
+  <!-- サイドバー -->
+  <div class="sidebar">
+    
+    <h3>日記</h3>
+    <ul>
+      <li><a href="#20220415">2022-04-15</a></li>
+      <li><a href="#20220416">2022-04-15</a></li>
+    </ul>
+  </div>
+
+  <!-- メイン記事 -->
+  <div class="container">
+    <div class="title">
+      <img src="hane-left.png" alt="羽" class="wing left">
+      Angel
+      <img src="hane-right.png" alt="羽" class="wing right">
+    </div>
+
+    <div class="summary">
+      2018年8月、息子が自ら命を絶ちました。遺品整理の際に彼の日記を見つけ、
+      その綿密な記録や聡明さに驚くと同時に、彼が学校で受けていたいじめの実態を初めて知りました。<br>
+      このブログは、母親である私が息子の残した日記を整理し、彼の想いや日常の記録を伝えるために運営しています。
+      読んでくださる方が、少しでも彼の心に触れることができればと思います。
+    </div>
+
+    <!-- 記事一覧 -->
+    <div class="post" id="20220415">
+      <h2>2022-04-15</h2>
+      <blockquote>今日から、4年前に亡くなった息子の日記を抜粋して載せていきたいと思う。日記には当時の学校での様子や、小さな出来事も正確に書かれている。淡々としているが、その落ち着きがかえって胸に刺さる。</blockquote>
+      <img src="0415.png" alt="日記の写真">
+    </div>
+    <div class="post" id="20220416">
+      <h2>2022-04-16</h2>
+      <blockquote>その日の空の匂い、虫の声。五感すべてで世界を受け止めていた息子。</blockquote>
+      <img src="0416.png" alt="日記の写真">
+    </div>
+    <!-- 他の日付も同じ構造で続ける -->
+  </div>
+</div>
+
+
+</body>
+</html>
